@@ -19,12 +19,9 @@ for iter = 1:num_iters
 
     h = sum(X .* repmat(theta, 1, rows(X))',2);
 
-    % tempTheta = theta;
+    theta  = theta - (alpha * (1/m) * sum((h-y) .* X))';
 
-    % tempTheta  = theta(1) - alpha * (1/m) * sum(h-y);
-    tempTheta  = theta - (alpha * (1/m) * sum((h-y) .* X))';
-
-    theta = tempTheta;
+    % theta = tempTheta;
     % ============================================================
 
     % Save the cost J in every iteration
